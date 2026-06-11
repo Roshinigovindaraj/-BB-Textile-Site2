@@ -164,7 +164,7 @@ export const newArrivalProducts: Product[] = [
   { name: 'Linen Silk Saree',     price: '₹3,299', image: '/images/n5.png' },
 ]
 
-export const heroImage = '/images/hero-backgr.png'
+export const heroImage = '/images/b-hero.png'
 
 export const benefits: Benefit[] = [
   {
@@ -316,7 +316,7 @@ export const sareeCategoryData: SareeCategoryMeta[] = [
     description: 'Timeless elegance woven into every thread. Discover handcrafted silk sarees for weddings, festivals, and special occasions.',
     accentColor: '#6e1024',
     heroBg: '#faf5f0',
-    heroImage: '/images/b-hero.png',
+    heroImage: '/images/hero-backgr.png',
     products: [
       { name: 'Pure Katan Silk Saree',       price: '₹12,999', rating: 4.5, reviews: 38, tag: 'New', image: '/images/ss1.png' },
       { name: 'Mysore Silk Saree',            price: '₹9,499',  rating: 4.0, reviews: 22, tag: 'New', image: '/images/sss2.png' },
