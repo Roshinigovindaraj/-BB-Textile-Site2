@@ -31,10 +31,22 @@ export type Product = {
 export type BridalProduct = {
   name: string
   price: string
+  mrp?: string
+  discount?: string
   rating: number
   reviews: number
   tag?: string
   image: string
+  images?: string[]
+  brand?: string
+  inStock?: boolean
+  highlights?: { label: string; value: string }[]
+  aboutItem?: string[]
+  additionalInfo?: { label: string; value: string }[]
+  styleInfo?: { label: string; value: string }[]
+  itemDetails?: { label: string; value: string }[]
+  productDimensions?: string
+  category?: string
 }
 
 export type SareeProduct = BridalProduct
@@ -117,7 +129,7 @@ export const navLinks: NavLink[] = [
     hasDropdown: true,
     dropdownItems: [
       { label: 'Silk Sarees',     href: '/sarees/silk' },
-      { label: 'Banarasi Sarees', href: '/sarees/banarasi' },
+      { label: 'Banarasi Sarees', href: '/banarasi' },
       { label: 'Kancheepuram',    href: '/sarees/kancheepuram' },
       { label: 'Tussar Sarees',   href: '/sarees/tussar' },
       { label: 'Linen Sarees',    href: '/sarees/linen' },
@@ -244,7 +256,7 @@ export const bridalProducts: BridalProduct[] = [
     price: '₹16,999',
     rating: 4.5,
     reviews: 36,
-    tag: 'New',
+    tag: 'Trending',
     image: createPortraitArtwork({ background: '#ede0cc', wall: '#c9a87a', saree: '#c8a528', border: '#f0d060', skin: '#cc9a70', hair: '#2e1e14', blouse: '#9a7a1a' }),
   },
   {
@@ -337,14 +349,67 @@ export const sareeCategoryData: SareeCategoryMeta[] = [
     heroBg: '#fdf5ee',
     heroImage: '/images/d3.png',
     products: [
-      { name: 'Royal Red Banarasi Saree',     price: '₹18,999', rating: 4.5, reviews: 42, tag: 'New',  image: createPortraitArtwork({ background: '#e8d0c4', wall: '#c4937a', saree: '#8b1a1a', border: '#d4a017', skin: '#c8906a', hair: '#2a1810', blouse: '#6b1212' }) },
-      { name: 'Purple Gold Banarasi Saree',   price: '₹17,499', rating: 4.5, reviews: 31, tag: 'New',  image: createPortraitArtwork({ background: '#e8d8f0', wall: '#b898cc', saree: '#5c2880', border: '#c890e0', skin: '#cc9870', hair: '#2c1818', blouse: '#401860' }) },
-      { name: 'Teal Zari Banarasi Saree',     price: '₹15,999', rating: 4.0, reviews: 19,              image: createPortraitArtwork({ background: '#d8eee8', wall: '#90c0b0', saree: '#186858', border: '#60d0a8', skin: '#c89870', hair: '#281c14', blouse: '#105040' }) },
-      { name: 'Navy Blue Banarasi Saree',     price: '₹16,499', rating: 4.5, reviews: 27,              image: createPortraitArtwork({ background: '#d8ddf0', wall: '#9098c8', saree: '#1a2878', border: '#7080d0', skin: '#cc9870', hair: '#2a1814', blouse: '#101860' }) },
-      { name: 'Ivory Gold Banarasi Saree',    price: '₹19,999', rating: 5.0, reviews: 38, tag: 'New',  image: createPortraitArtwork({ background: '#f4ece0', wall: '#d8c8a0', saree: '#e8d490', border: '#f0e070', skin: '#cc9870', hair: '#2e1e12', blouse: '#a89040' }) },
-      { name: 'Maroon Brocade Saree',         price: '₹14,999', rating: 4.0, reviews: 23,              image: createPortraitArtwork({ background: '#f0dcd8', wall: '#c4988c', saree: '#701828', border: '#c05040', skin: '#cc9870', hair: '#2a1810', blouse: '#501020' }) },
-      { name: 'Peach Banarasi Silk Saree',    price: '₹13,499', rating: 4.0, reviews: 15,              image: createPortraitArtwork({ background: '#f8ece4', wall: '#d8b8a0', saree: '#d89070', border: '#f0c898', skin: '#d0a07c', hair: '#2c1c14', blouse: '#b07050' }) },
-      { name: 'Emerald Banarasi Saree',       price: '₹17,999', rating: 4.5, reviews: 34,              image: createPortraitArtwork({ background: '#d8ece0', wall: '#98c0a8', saree: '#186040', border: '#a0d0a0', skin: '#c89870', hair: '#281c14', blouse: '#104830' }) },
+      {
+        name: 'Royal Red Banarasi Saree', price: '₹18,999', mrp: '₹32,999', discount: '-42%',
+        rating: 4.5, reviews: 42, tag: 'Trending', brand: 'Vaarini Boutique', inStock: true,
+        image: '/images/red-pose1.png',
+        images: [
+          '/images/red-pose1.png',
+          '/images/red-pose2.png',
+          '/images/red-pose3.png',
+          '/images/red-pose4.png',
+          '/images/red-pose5.png',
+        ],
+        category: 'Banarasi Sarees',
+        highlights: [
+          { label: 'Material composition', value: 'Pure Silk' },
+          { label: 'Weave type', value: 'Banarasi' },
+          { label: 'Occasion type', value: 'Wedding' },
+          { label: 'Included components', value: 'With blouse piece' },
+          { label: 'Care instructions', value: 'Dry Clean Only' },
+          { label: 'Country of Origin', value: 'India' },
+        ],
+        aboutItem: [
+          'Fabric: Pure Silk, Blouse Fabric: Soft Silk. Work: Zari Woven Jacquard Stylish Sari.',
+          'Saree Length: 5.30 Meter, Blouse Piece Length: 0.80 Meter (Unstitched, Attached With Saree).',
+          'Soft Finished, Comfortable To Wear and Easy To Take Fleets. Size-Free Size.',
+          'Saree is Not Transparent. Package Included: Beautiful traditional saree with blouse piece.',
+          'Occasion: Formal Wear, Casual Wear, Wedding, Party, Festival.',
+        ],
+        additionalInfo: [
+          { label: 'Manufacturer', value: 'Vaarini Boutique' },
+          { label: 'Item Weight', value: '450 g' },
+          { label: 'Item Dimensions LxWxH', value: '30 x 28 x 2 Centimeters' },
+          { label: 'Net Quantity', value: '1.00 Count' },
+          { label: 'Included Components', value: 'With blouse piece' },
+          { label: 'Generic Name', value: 'Banarasi Kanjivaram Style Saree' },
+          { label: 'Country of Origin', value: 'India' },
+        ],
+        styleInfo: [
+          { label: 'Colour', value: 'Royal Red' },
+          { label: 'Pattern', value: 'Zari Woven' },
+          { label: 'Occasion Type', value: 'Wedding' },
+          { label: 'Embroidery Type', value: 'Zari' },
+          { label: 'Style Name', value: 'Traditional' },
+        ],
+        itemDetails: [
+          { label: 'Brand Name', value: 'Vaarini Boutique' },
+          { label: 'Item Length', value: '530 Centimetres' },
+          { label: 'Included Components', value: 'With blouse piece' },
+          { label: 'Saree Has Blouse Included', value: 'Yes' },
+          { label: 'Number of Items', value: '1' },
+          { label: 'Age Range Description', value: 'Adult' },
+          { label: 'Country of Origin', value: 'India' },
+        ],
+        productDimensions: '30 x 28 x 2 cm; 450 g',
+      },
+      { name: 'Purple Gold Banarasi Saree',   price: '₹17,499', mrp: '₹28,999', discount: '-40%', rating: 4.5, reviews: 31, tag: 'New', brand: 'Vaarini Boutique', inStock: true, image: '/images/sec-pose1.png', images: ['/images/sec-pose1.png', '/images/sec-pose2.png', '/images/sec-pose3.png', '/images/sec-pose4.png', '/images/sec-pose5.png'], category: 'Banarasi Sarees', highlights: [{ label: 'Material', value: 'Pure Silk' }, { label: 'Weave type', value: 'Banarasi' }, { label: 'Occasion', value: 'Wedding' }, { label: 'Blouse piece', value: 'Included' }, { label: 'Care', value: 'Dry Clean Only' }], aboutItem: ['Pure silk Banarasi saree with gold zari weave.', 'Length: 5.30m + 0.80m blouse piece.', 'Occasion: Wedding, Reception, Festival.'] },
+      { name: 'Teal Zari Banarasi Saree',     price: '₹15,999', mrp: '₹24,999', discount: '-36%', rating: 4.0, reviews: 19, brand: 'Vaarini Boutique', inStock: true, image: '/images/3-pose1.png', images: ['/images/3-pose2.png', '/images/3-pose3.png', '/images/3-pose4.png', '/images/3-pose5.png', '/images/3-pose1.png'], category: 'Banarasi Sarees', highlights: [{ label: 'Material', value: 'Pure Silk' }, { label: 'Weave type', value: 'Banarasi Zari' }, { label: 'Occasion', value: 'Festive' }], aboutItem: ['Teal silk Banarasi with golden zari border.', 'Free size, 5.30m saree + blouse piece.'] },
+      { name: 'Navy Blue Banarasi Saree',     price: '₹16,499', mrp: '₹26,999', discount: '-39%', rating: 4.5, reviews: 27, brand: 'Vaarini Boutique', inStock: true, image: '/images/n3.png', images: ['/images/n3.png', '/images/n1.png', '/images/n2.png', '/images/n4.png', '/images/n5.png'], category: 'Banarasi Sarees', highlights: [{ label: 'Material', value: 'Pure Silk' }, { label: 'Weave type', value: 'Banarasi' }, { label: 'Occasion', value: 'Wedding' }], aboutItem: ['Rich navy blue Banarasi silk with zari work.', 'Comes with unstitched blouse piece.'] },
+      { name: 'Ivory Gold Banarasi Saree',    price: '₹19,999', mrp: '₹34,999', discount: '-43%', rating: 5.0, reviews: 38, tag: 'New', brand: 'Vaarini Boutique', inStock: true, image: '/images/n4.png', images: ['/images/n4.png', '/images/n5.png', '/images/n1.png', '/images/n2.png', '/images/n3.png'], category: 'Banarasi Sarees', highlights: [{ label: 'Material', value: 'Pure Silk' }, { label: 'Weave type', value: 'Banarasi Brocade' }, { label: 'Occasion', value: 'Bridal' }], aboutItem: ['Premium ivory gold Banarasi bridal saree.', 'Heavy brocade work, 5.5m + blouse.'] },
+      { name: 'Maroon Brocade Saree',         price: '₹14,999', mrp: '₹22,999', discount: '-35%', rating: 4.0, reviews: 23, brand: 'Vaarini Boutique', inStock: true, image: '/images/red-pose3.png', images: ['/images/red-pose5.png', '/images/d1.png', '/images/d2.png', '/images/d4.png', '/images/d5.png'], category: 'Banarasi Sarees', highlights: [{ label: 'Material', value: 'Art Silk' }, { label: 'Weave type', value: 'Brocade' }, { label: 'Occasion', value: 'Festive' }], aboutItem: ['Rich maroon brocade Banarasi saree.', 'Traditional design, includes blouse piece.'] },
+      { name: 'Peach Banarasi Silk Saree',    price: '₹13,499', mrp: '₹20,999', discount: '-36%', rating: 4.0, reviews: 15, brand: 'Vaarini Boutique', inStock: true, image: '/images/red-pose3.png', images: ['/images/sec-pose3.png', '/images/d6.png', '/images/d1.png', '/images/d2.png', '/images/d4.png'], category: 'Banarasi Sarees', highlights: [{ label: 'Material', value: 'Soft Silk' }, { label: 'Weave type', value: 'Banarasi' }, { label: 'Occasion', value: 'Casual / Festive' }], aboutItem: ['Soft peach Banarasi silk, light and comfortable.', '5.30m + 0.80m blouse piece.'] },
+      { name: 'Emerald Banarasi Saree',       price: '₹17,999', mrp: '₹29,999', discount: '-40%', rating: 4.5, reviews: 34, brand: 'Vaarini Boutique', inStock: true, image: '/images/red-pose3.png', images: ['/images/3-pose3.png', '/images/d4.png', '/images/d6.png', '/images/d1.png', '/images/d3.png'], category: 'Banarasi Sarees', highlights: [{ label: 'Material', value: 'Pure Silk' }, { label: 'Weave type', value: 'Banarasi Zari' }, { label: 'Occasion', value: 'Wedding' }], aboutItem: ['Vivid emerald green Banarasi with gold zari.', 'Bridal quality weave, includes blouse.'] },
     ],
   },
   {
@@ -354,7 +419,7 @@ export const sareeCategoryData: SareeCategoryMeta[] = [
     description: 'The queen of silks — Kancheepuram sarees are a living heirloom, rich in colour, texture, and tradition.',
     accentColor: '#7a5a00',
     heroBg: '#fdf8ee',
-    heroImage: '/images/d4.png',
+    heroImage: '/images/sec-pose4.png',
     products: [
       { name: 'Classic Red Kanjivaram Saree', price: '₹19,999', rating: 4.5, reviews: 45, tag: 'New',  image: createPortraitArtwork({ background: '#f0d8d0', wall: '#c89880', saree: '#9e1a1a', border: '#e8b830', skin: '#ca9060', hair: '#281810', blouse: '#781414' }) },
       { name: 'Golden Kancheepuram Saree',    price: '₹21,999', rating: 5.0, reviews: 57, tag: 'New',  image: createPortraitArtwork({ background: '#f4ecd8', wall: '#d8c090', saree: '#c89820', border: '#f0d860', skin: '#cc9870', hair: '#2e1e12', blouse: '#987018' }) },
