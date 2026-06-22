@@ -20,15 +20,15 @@ export function BenefitsSection({ items }: BenefitsSectionProps) {
       <div className="mx-auto max-w-[1440px] px-6">
 
         {/* Heading */}
-        <div className="reveal mb-10 flex items-center justify-center gap-6">
-          <div className="h-px w-24 bg-[var(--color-border-strong)]/70" />
-          <h2 className="section-heading reveal font-[var(--font-display)] text-[32px] uppercase tracking-[0.08em] text-[var(--color-text)]">
+        <div className="reveal mb-10 flex items-center justify-center gap-4 sm:gap-6">
+          <div className="hidden sm:block h-px w-10 md:w-24 bg-[var(--color-border-strong)]/70" />
+          <h2 className="section-heading reveal font-[var(--font-display)] text-[22px] sm:text-[26px] md:text-[32px] uppercase tracking-[0.08em] text-[var(--color-text)] text-center">
             Why Choose Vaarini?
           </h2>
-          <div className="h-px w-24 bg-[var(--color-border-strong)]/70" />
+          <div className="hidden sm:block h-px w-10 md:w-24 bg-[var(--color-border-strong)]/70" />
         </div>
 
-        <div className="stagger-children grid gap-4 lg:grid-cols-5">
+        <div className="stagger-children grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
           {items.map((item) => {
             const Icon = iconMap[item.icon]
 

@@ -193,7 +193,7 @@ export default function BridalCollection() {
             </svg>
           </div>
 
-          <div className="mx-auto grid max-w-[1440px] min-h-[340px] grid-cols-[1fr_1fr] items-center px-10 lg:px-16">
+          <div className="mx-auto grid max-w-[1440px] min-h-[340px] grid-cols-1 lg:grid-cols-2 items-center px-6 sm:px-10 lg:px-16">
             {/* Left copy */}
             <div className="py-14 pr-8 lg:pr-16">
               {/* Breadcrumb */}
@@ -206,11 +206,11 @@ export default function BridalCollection() {
               </nav>
 
               <h1 className="hero-title font-[var(--font-display)]">
-                <span className="block text-[58px] font-bold uppercase leading-none tracking-[0.06em] text-[var(--color-text)] lg:text-[68px]">
+                <span className="block text-[42px] sm:text-[58px] font-bold uppercase leading-none tracking-[0.06em] text-[var(--color-text)] lg:text-[68px]">
                   Bridal
                 </span>
                 <span
-                  className="block text-[62px] italic leading-tight text-[var(--color-wine)] lg:text-[74px]"
+                  className="block text-[46px] sm:text-[62px] italic leading-tight text-[var(--color-wine)] lg:text-[74px]"
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   Collection
@@ -242,7 +242,7 @@ export default function BridalCollection() {
             </div>
 
             {/* Right — hero image fills right half */}
-            <div className="relative h-full min-h-[340px] overflow-hidden">
+            <div className="relative h-[320px] lg:h-full min-h-[340px] overflow-hidden">
               {/* Arch frame */}
               <div
                 className="absolute inset-0"
@@ -314,7 +314,7 @@ export default function BridalCollection() {
         {/* ── Product Grid ── */}
         <section className="py-12" id="bridal-grid">
           <div className="mx-auto max-w-[1440px] px-6">
-            <div className={`stagger-children grid gap-6 ${gridView ? 'sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
+            <div className={`stagger-children grid gap-6 ${gridView ? 'grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
               {bridalProducts.map((product) => (
                 <BridalCard key={product.name} product={product} />
               ))}

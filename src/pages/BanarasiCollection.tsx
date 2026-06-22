@@ -256,7 +256,7 @@ export default function BanarasiCollection() {
             </svg>
           </div>
 
-          <div className="relative mx-auto grid max-w-[1440px] min-h-[380px] grid-cols-[1fr_1fr] items-center px-10 lg:px-16">
+          <div className="relative mx-auto grid max-w-[1440px] min-h-[380px] grid-cols-1 lg:grid-cols-2 items-center px-6 sm:px-10 lg:px-16">
             {/* Left copy */}
             <div className="py-14 pr-8 lg:pr-16">
               {/* Breadcrumb */}
@@ -269,10 +269,10 @@ export default function BanarasiCollection() {
               </nav>
 
               <h1 className="hero-title font-[var(--font-display)]">
-                <span className="block text-[58px] font-bold uppercase leading-none tracking-[0.06em] text-[var(--color-text)] lg:text-[68px]">
+                <span className="block text-[42px] sm:text-[58px] font-bold uppercase leading-none tracking-[0.06em] text-[var(--color-text)] lg:text-[68px]">
                   Banarasi
                 </span>
-                <span className="block text-[62px] italic leading-tight text-[var(--color-wine)] lg:text-[74px]" style={{ fontFamily: 'var(--font-display)' }}>
+                <span className="block text-[46px] sm:text-[62px] italic leading-tight text-[var(--color-wine)] lg:text-[74px]" style={{ fontFamily: 'var(--font-display)' }}>
                   Collection
                 </span>
               </h1>
@@ -333,7 +333,7 @@ export default function BanarasiCollection() {
         {/* ── Product Grid ── */}
         <section className="py-12" id="banarasi-grid">
           <div className="mx-auto max-w-[1440px] px-6">
-            <div className={`stagger-children grid gap-6 ${gridView ? 'sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
+            <div className={`stagger-children grid gap-6 ${gridView ? 'grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
               {category.products.map((product, i) => (
                 <ProductCard
                   key={product.name}

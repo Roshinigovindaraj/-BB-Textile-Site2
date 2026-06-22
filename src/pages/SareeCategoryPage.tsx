@@ -138,18 +138,18 @@ export default function SareeCategoryPage() {
             <div className="grid min-h-[480px] items-center lg:min-h-[540px] lg:grid-cols-[minmax(0,460px)_1fr] xl:min-h-[580px]">
 
               {/* Left copy */}
-              <div className="relative z-10 py-10 lg:py-14 lg:pl-6 xl:pl-10 lg:translate-x-[125px] -translate-y-[55px]">
+              <div className="relative z-10 py-10 lg:py-14 lg:pl-6 xl:pl-10 lg:translate-x-[125px] lg:-translate-y-[55px] translate-y-0">
                 <p className="hero-eyebrow mb-5 text-[11px] uppercase tracking-[0.28em] text-[var(--color-gold-deep)]">
                   {category.title} Sarees — Vaarini Boutique
                 </p>
 
-                <h1 className="hero-title font-display text-[42px] leading-[1.12] text-[var(--color-text)] sm:text-[50px] xl:text-[56px]">
+                <h1 className="hero-title font-display text-[32px] leading-[1.12] text-[var(--color-text)] sm:text-[42px] md:text-[50px] xl:text-[56px]">
                   {category.title}{' '}
-                  <span className="font-display text-[56px] italic leading-none text-[var(--color-wine)] sm:text-[66px] xl:text-[74px]">
+                  <span className="font-display text-[42px] italic leading-none text-[var(--color-wine)] sm:text-[56px] md:text-[66px] xl:text-[74px]">
                     Sarees
                   </span>
                   <br />
-                  <span className="font-display text-[56px] italic leading-none text-[var(--color-wine)] sm:text-[66px] xl:text-[74px]">
+                  <span className="font-display text-[42px] italic leading-none text-[var(--color-wine)] sm:text-[56px] md:text-[66px] xl:text-[74px]">
                     Collection
                   </span>
                 </h1>
@@ -176,7 +176,7 @@ export default function SareeCategoryPage() {
             {/* Bottom tagline */}
             <div className="hero-tagline relative z-10 overflow-hidden">
               <div
-                className="group relative flex items-center justify-start gap-0 py-5 lg:pl-6 xl:pl-10 lg:translate-x-[80px] transition-colors duration-300 hover:bg-[rgba(192,154,108,0.06)]"
+                className="group relative flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-5 lg:pl-6 xl:pl-10 lg:translate-x-[80px] lg:justify-start lg:gap-0 transition-colors duration-300 hover:bg-[rgba(192,154,108,0.06)]"
                 style={{ cursor: 'default' }}
               >
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={{
@@ -187,12 +187,12 @@ export default function SareeCategoryPage() {
                   onMouseLeave={e => ((e.currentTarget as HTMLSpanElement).style.backgroundPosition = '200% 0')}
                 />
                 <span className="shimmer-gold text-[10px] font-semibold uppercase tracking-[0.28em]">Pure Fabrics</span>
-                <span className="relative mx-4 inline-flex items-center justify-center">
+                <span className="relative mx-4 hidden lg:inline-flex items-center justify-center">
                   <span aria-hidden="true" className="absolute inline-block h-2 w-2 rounded-full bg-[var(--color-gold)]/30" style={{ animation: 'pulseRing 2s ease-out infinite' }} />
                   <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-gold)]" />
                 </span>
                 <span className="shimmer-gold text-[10px] font-semibold uppercase tracking-[0.28em]">Fine Craftsmanship</span>
-                <span className="relative mx-4 inline-flex items-center justify-center">
+                <span className="relative mx-4 hidden lg:inline-flex items-center justify-center">
                   <span aria-hidden="true" className="absolute inline-block h-2 w-2 rounded-full bg-[var(--color-gold)]/30" style={{ animation: 'pulseRing 2s ease-out 0.7s infinite' }} />
                   <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-gold)]" />
                 </span>
@@ -231,7 +231,7 @@ export default function SareeCategoryPage() {
         {/* ── Product Grid ── */}
         <section className="py-12" id="category-grid">
           <div className="mx-auto max-w-[1440px] px-6">
-            <div className={`stagger-children grid gap-6 ${gridView ? 'sm:grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
+            <div className={`stagger-children grid gap-6 ${gridView ? 'grid-cols-2 lg:grid-cols-4' : 'grid-cols-1'}`}>
               {category.products.map(product => (
                 <CategoryCard key={product.name} product={product} />
               ))}

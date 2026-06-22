@@ -80,9 +80,9 @@ export default function ProductDetailPage() {
         <div className="grid gap-8 lg:grid-cols-[420px_1fr_280px]">
 
           {/* ── LEFT: Image Gallery ── */}
-          <div className="flex gap-3 self-start lg:sticky lg:top-[80px]">
-            {/* Thumbnails — always 5 */}
-            <div className="flex flex-col gap-2">
+          <div className="flex flex-col-reverse sm:flex-row gap-3 self-start lg:sticky lg:top-[80px] w-full lg:w-[420px]">
+            {/* Thumbnails */}
+            <div className="flex flex-row sm:flex-col gap-2 overflow-x-auto no-scrollbar pb-2 sm:pb-0">
               {Array.from({ length: 5 }).map((_, i) => {
                 const img = images[i] ?? images[images.length - 1]
                 return (
@@ -90,7 +90,7 @@ export default function ProductDetailPage() {
                     key={i}
                     type="button"
                     onClick={() => setActiveImg(i < images.length ? i : images.length - 1)}
-                    className={`h-[78px] w-[66px] shrink-0 overflow-hidden rounded-[6px] border-2 transition ${
+                    className={`h-[68px] w-[56px] sm:h-[78px] sm:w-[66px] shrink-0 overflow-hidden rounded-[6px] border-2 transition ${
                       activeImg === (i < images.length ? i : images.length - 1)
                         ? 'border-[var(--color-wine)]'
                         : 'border-[var(--color-border)] hover:border-[var(--color-gold)]'
@@ -106,7 +106,7 @@ export default function ProductDetailPage() {
               <img
                 src={images[activeImg]}
                 alt={product.name}
-                className="h-[440px] w-full object-cover object-top"
+                className="h-[320px] sm:h-[440px] w-full object-cover object-top"
               />
               {product.tag && (
                 <span className="absolute left-3 top-3 rounded-sm bg-[var(--color-wine)] px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-white">
@@ -154,7 +154,7 @@ export default function ProductDetailPage() {
               <p className="mb-3 flex items-center gap-2 text-[14px] font-bold text-[var(--color-text)]">
                 <Zap className="h-4 w-4 text-[var(--color-gold-deep)]" /> Offers
               </p>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
                   { title: 'Cashback', desc: 'Upto ₹500 cashback on select cards' },
                   { title: 'Bank Offer', desc: 'Upto ₹1,500 discount on select Credit Cards' },
@@ -190,7 +190,7 @@ export default function ProductDetailPage() {
               <Accordion title="Top highlights" defaultOpen>
                 <div className="divide-y divide-[var(--color-border)]">
                   {product.highlights.map(h => (
-                    <div key={h.label} className="grid grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
+                    <div key={h.label} className="grid grid-cols-[120px_1fr] sm:grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
                       <span className="font-semibold text-[#2c1c14]">{h.label}</span>
                       <span className="text-[#44312f]">{h.value}</span>
                     </div>
@@ -213,7 +213,7 @@ export default function ProductDetailPage() {
               <Accordion title="Additional Information">
                 <div className="divide-y divide-[var(--color-border)]">
                   {product.additionalInfo.map(r => (
-                    <div key={r.label} className="grid grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
+                    <div key={r.label} className="grid grid-cols-[120px_1fr] sm:grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
                       <span className="font-bold text-[#2c1c14]">{r.label}</span>
                       <span className="text-[#44312f]">{r.value}</span>
                     </div>
@@ -226,7 +226,7 @@ export default function ProductDetailPage() {
               <Accordion title="Style">
                 <div className="divide-y divide-[var(--color-border)]">
                   {product.styleInfo.map(r => (
-                    <div key={r.label} className="grid grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
+                    <div key={r.label} className="grid grid-cols-[120px_1fr] sm:grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
                       <span className="text-[#5a4030]">{r.label}</span>
                       <span className="font-medium text-[#2c1c14]">{r.value}</span>
                     </div>
@@ -239,7 +239,7 @@ export default function ProductDetailPage() {
               <Accordion title="Item details">
                 <div className="divide-y divide-[var(--color-border)]">
                   {product.itemDetails.map(r => (
-                    <div key={r.label} className="grid grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
+                    <div key={r.label} className="grid grid-cols-[120px_1fr] sm:grid-cols-[180px_1fr] gap-4 py-2.5 text-[13px]">
                       <span className="text-[#5a4030]">{r.label}</span>
                       <span className="font-medium text-[#2c1c14]">{r.value}</span>
                     </div>
@@ -251,7 +251,7 @@ export default function ProductDetailPage() {
             {product.productDimensions && (
               <div className="border-t border-[var(--color-border)] pt-4">
                 <p className="text-[14px] font-bold text-[var(--color-text)] mb-3">Product details</p>
-                <div className="grid grid-cols-[180px_1fr] gap-2 text-[13px]">
+                <div className="grid grid-cols-[120px_1fr] sm:grid-cols-[180px_1fr] gap-2 text-[13px]">
                   <span className="font-semibold text-[#2c1c14]">Product Dimensions</span>
                   <span className="text-[#44312f]">{product.productDimensions}</span>
                   <span className="font-semibold text-[#2c1c14]">Country of Origin</span>

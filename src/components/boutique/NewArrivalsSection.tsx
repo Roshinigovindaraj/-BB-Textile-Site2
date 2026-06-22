@@ -17,7 +17,7 @@ export function NewArrivalsSection({ products }: NewArrivalsSectionProps) {
           <h2 className="font-[var(--font-display)] text-[46px] uppercase tracking-[0.08em] text-[var(--color-text)]">
             New Arrivals
           </h2>
-          <p className="mt-6 max-w-[190px] text-[15px] leading-8 text-[var(--color-muted)]">
+          <p className="mt-6 max-w-md lg:max-w-[190px] text-[15px] leading-8 text-[var(--color-muted)]">
             Fresh drapes. New stories. Be the first to explore our latest handpicked sarees.
           </p>
           <a
@@ -30,7 +30,7 @@ export function NewArrivalsSection({ products }: NewArrivalsSectionProps) {
         </div>
 
         {/* Products grid */}
-        <div className="stagger-children grid gap-6 sm:grid-cols-2 xl:grid-cols-5" id="collections">
+        <div className="stagger-children grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5" id="collections">
           {products.map((product) => (
             <ProductCard key={product.name} product={product} />
           ))}

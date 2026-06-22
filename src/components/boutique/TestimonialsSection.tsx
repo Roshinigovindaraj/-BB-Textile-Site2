@@ -13,12 +13,12 @@ export function TestimonialsSection({ items }: TestimonialsSectionProps) {
 
         {/* Heading */}
         <div className="reveal mb-12 flex flex-col items-center gap-3">
-          <div className="flex items-center gap-5">
-            <div className="h-px w-16 bg-gradient-to-r from-transparent to-[var(--color-gold-deep)]/60" />
-            <h2 className="section-heading reveal font-[var(--font-display)] text-[32px] uppercase tracking-[0.08em] text-[var(--color-text)]">
+          <div className="flex items-center gap-3 sm:gap-5">
+            <div className="hidden sm:block h-px w-10 md:w-16 bg-gradient-to-r from-transparent to-[var(--color-gold-deep)]/60" />
+            <h2 className="section-heading reveal font-[var(--font-display)] text-[22px] sm:text-[26px] md:text-[32px] uppercase tracking-[0.08em] text-[var(--color-text)] text-center">
               Loved By Our Customers
             </h2>
-            <div className="h-px w-16 bg-gradient-to-l from-transparent to-[var(--color-gold-deep)]/60" />
+            <div className="hidden sm:block h-px w-10 md:w-16 bg-gradient-to-l from-transparent to-[var(--color-gold-deep)]/60" />
           </div>
           {/* Gold ornament */}
           <svg width="60" height="10" viewBox="0 0 60 10" fill="none" aria-hidden="true">
@@ -31,7 +31,7 @@ export function TestimonialsSection({ items }: TestimonialsSectionProps) {
         </div>
 
         {/* Cards */}
-        <div className="stagger-children grid gap-4 lg:grid-cols-3">
+        <div className="stagger-children grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
             <article
               key={item.author}

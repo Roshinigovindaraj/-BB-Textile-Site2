@@ -30,18 +30,18 @@ export function CategoryStrip({ items }: CategoryStripProps) {
       <div className="mx-auto max-w-[1440px] px-6">
 
         {/* Heading */}
-        <div className="reveal mb-10 flex items-center justify-center gap-6">
-          <div className="h-px w-28 bg-[var(--color-border-strong)]/70" />
-          <h2 className="section-heading reveal font-[var(--font-display)] text-[34px] uppercase tracking-[0.08em] text-[var(--color-text)]">
+        <div className="reveal mb-10 flex items-center justify-center gap-4 sm:gap-6">
+          <div className="hidden sm:block h-px w-12 md:w-28 bg-[var(--color-border-strong)]/70" />
+          <h2 className="section-heading reveal font-[var(--font-display)] text-[22px] sm:text-[28px] md:text-[34px] uppercase tracking-[0.08em] text-[var(--color-text)] text-center">
             Discover by Category
           </h2>
-          <div className="h-px w-28 bg-[var(--color-border-strong)]/70" />
+          <div className="hidden sm:block h-px w-12 md:w-28 bg-[var(--color-border-strong)]/70" />
         </div>
 
         <div className="flex items-center gap-4">
           <button
             aria-label="Scroll categories left"
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[var(--color-border)] bg-white transition hover:border-[rgba(192,154,108,0.6)] hover:shadow-md"
+            className="hidden sm:grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[var(--color-border)] bg-white transition hover:border-[rgba(192,154,108,0.6)] hover:shadow-md"
             onClick={() => scrollByAmount(-320)}
             type="button"
           >
@@ -78,7 +78,7 @@ export function CategoryStrip({ items }: CategoryStripProps) {
 
           <button
             aria-label="Scroll categories right"
-            className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[var(--color-border)] bg-white transition hover:border-[rgba(192,154,108,0.6)] hover:shadow-md"
+            className="hidden sm:grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[var(--color-border)] bg-white transition hover:border-[rgba(192,154,108,0.6)] hover:shadow-md"
             onClick={() => scrollByAmount(320)}
             type="button"
           >

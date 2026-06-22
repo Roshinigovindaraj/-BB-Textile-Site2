@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { ChevronDown, Heart, Search, ShoppingBag, UserRound } from 'lucide-react'
+import { ChevronDown, Heart, Search, ShoppingBag, UserRound, Menu, X } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import type { NavLink } from '@/utils/boutiqueData'
@@ -157,17 +157,84 @@ function NavItem({ link }: NavItemProps) {
   )
 }
 
+function MobileNavItem({ link, onClick }: { link: NavLink; onClick: () => void }) {
+  const [open, setOpen] = useState(false)
+
+  if (!link.hasDropdown || !link.dropdownItems?.length) {
+    return (
+      <a
+        onClick={onClick}
+        className="block border-b border-[var(--color-border)] py-4 text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text)] transition hover:text-[var(--color-wine)]"
+        href={link.href}
+      >
+        {link.label}
+      </a>
+    )
+  }
+
+  return (
+    <div className="border-b border-[var(--color-border)] py-3">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex w-full items-center justify-between py-1 text-left text-[12px] font-semibold uppercase tracking-[0.2em] text-[var(--color-text)] transition hover:text-[var(--color-wine)]"
+        type="button"
+      >
+        <span>{link.label}</span>
+        <ChevronDown className={`h-4 w-4 text-[var(--color-muted)] transition-transform duration-200 ${open ? 'rotate-180' : ''}`} />
+      </button>
+
+      <div
+        className={`mt-2 overflow-hidden transition-all duration-300 ease-in-out ${
+          open ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+        }`}
+      >
+        <ul className="space-y-2 pl-4 py-2">
+          {link.dropdownItems.map((item) => (
+            <li key={item.label}>
+              <Link
+                to={item.href}
+                onClick={onClick}
+                className="flex items-center justify-between py-1.5 text-[11px] font-medium uppercase tracking-[0.14em] text-[#5a3520] hover:text-[var(--color-wine)]"
+              >
+                <span>{item.label}</span>
+                {item.tag && (
+                  <span className="rounded-sm bg-gradient-to-r from-[var(--color-wine)] to-[#9b1a34] px-1.5 py-[2px] text-[8px] font-bold uppercase tracking-[0.1em] text-white">
+                    {item.tag}
+                  </span>
+                )}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
 type HeaderProps = {
   links: NavLink[]
 }
 
 export function Header({ links }: HeaderProps) {
+  const [menuOpen, setMenuOpen] = useState(false)
   const actions = [
     { label: 'Search products', icon: Search },
     { label: 'Open account', icon: UserRound },
     { label: 'View wishlist', icon: Heart },
     { label: 'Open cart', icon: ShoppingBag, badge: '0' },
   ]
+
+  // Disable scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
 
   return (
     <header className="sticky top-0 z-30 border-b border-[var(--color-border)] bg-[rgba(253,251,247,0.96)] backdrop-blur-sm">
@@ -208,8 +275,35 @@ export function Header({ links }: HeaderProps) {
               </button>
             )
           })}
+
+          {/* Hamburger Menu Toggle Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="relative rounded-full p-2 transition hover:bg-white/80 lg:hidden"
+            aria-label="Toggle navigation menu"
+            type="button"
+          >
+            {menuOpen ? <X className="h-[18px] w-[18px] stroke-[1.6]" /> : <Menu className="h-[18px] w-[18px] stroke-[1.6]" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile navigation drawer */}
+      {menuOpen && (
+        <div className="fixed inset-x-0 bottom-0 top-[68px] z-40 flex flex-col bg-[#fdf6ee] px-6 py-6 overflow-y-auto lg:hidden">
+          <nav className="flex-1" aria-label="Mobile navigation">
+            {links.map((link) => (
+              <MobileNavItem key={link.label} link={link} onClick={() => setMenuOpen(false)} />
+            ))}
+          </nav>
+          
+          <div className="mt-8 border-t border-[var(--color-border)] pt-6 text-center">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-[#b58a4d]">
+              Vaarini Boutique
+            </p>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

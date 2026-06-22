@@ -40,7 +40,7 @@ export function OfferBanner() {
           <div className="pointer-events-none absolute bottom-5 right-5 h-12 w-12 border-b border-r border-[rgba(200,165,109,0.55)]" />
 
           {/* Content */}
-          <div className="relative z-10 grid min-h-[220px] grid-cols-[1fr_auto] items-center gap-8 px-12 py-10 sm:px-16 lg:grid-cols-[420px_1fr]">
+          <div className="relative z-10 grid min-h-[220px] grid-cols-1 items-center gap-8 px-8 py-10 sm:px-16 lg:grid-cols-[420px_1fr]">
 
             {/* Left — headline block */}
             <div>
@@ -84,7 +84,7 @@ export function OfferBanner() {
               </a>
 
               {/* Feature icons */}
-              <div className="flex items-center gap-8">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-8">
                 {features.map(({ icon: Icon, label, sub }) => (
                   <div key={label} className="flex flex-col items-center gap-1.5 text-center">
                     <div className="grid h-10 w-10 place-items-center rounded-full border border-[rgba(200,165,109,0.45)] bg-white/5">
